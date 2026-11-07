@@ -1,0 +1,28 @@
+owner: franklinburrus
+repo: thefileswithdub-status
+secrets: []
+
+sites:
+  - name: Dub feeds
+    slug: dub-feeds
+    url: $DUB_FEED_HEALTH_URL
+    method: GET
+    expectedStatusCodes:
+      - 200
+    __dangerous__body_down_if_text_missing: '"status":"healthy"'
+    connectTimeout: 10
+    requestTimeout: 30
+    maxRetries: 1
+    maxResponseTime: 30000
+    assignees:
+      - franklinburrus
+    tags:
+      - status
+
+skipDeleteIssues: true
+skipDescriptionUpdate: true
+skipTopicsUpdate: true
+skipHomepageUpdate: true
+skipPoweredByReadme: true
+status-website:
+  publish: false
