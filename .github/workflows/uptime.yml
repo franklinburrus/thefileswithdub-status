@@ -2,6 +2,8 @@ name: Feed health
 run-name: Feed health (${{ inputs.delivery_test || 'scheduled' }})
 
 on:
+  schedule:
+    - cron: "3-59/5 * * * *"
   workflow_dispatch:
     inputs:
       delivery_test:
