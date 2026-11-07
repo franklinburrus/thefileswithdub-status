@@ -4,19 +4,19 @@
     "url": "$DUB_FEED_HEALTH_URL",
     "icon": "https://icons.duckduckgo.com/ip3/null.ico",
     "slug": "dub-feeds",
-    "status": "down",
-    "uptime": "93.86%",
-    "uptimeDay": "93.86%",
-    "uptimeWeek": "93.86%",
-    "uptimeMonth": "93.86%",
-    "uptimeYear": "93.86%",
-    "time": 331,
-    "timeDay": 331,
-    "timeWeek": 331,
-    "timeMonth": 331,
-    "timeYear": 331,
+    "status": "up",
+    "uptime": "46.15%",
+    "uptimeDay": "46.15%",
+    "uptimeWeek": "46.15%",
+    "uptimeMonth": "46.15%",
+    "uptimeYear": "46.15%",
+    "time": 382,
+    "timeDay": 382,
+    "timeWeek": 382,
+    "timeMonth": 382,
+    "timeYear": 382,
     "dailyMinutesDown": {
-      "2026-11-07": 0
+      "2026-11-07": 1
     }
   }
 ]
