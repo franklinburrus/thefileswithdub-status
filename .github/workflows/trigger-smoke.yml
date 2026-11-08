@@ -1,0 +1,50 @@
+name: Feed trigger smoke
+run-name: Feed trigger smoke [${{ inputs.trigger_id || 'manual' }}]
+
+on:
+  workflow_dispatch:
+    inputs:
+      trigger_id:
+        description: Optional automatic-trigger correlation ID
+        type: string
+        required: false
+        default: ""
+      delivery_test:
+        description: Preview trigger check
+        type: choice
+        required: true
+        default: none
+        options:
+          - none
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Record preview trigger correlation
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Validate and record correlation
+        env:
+          TRIGGER_ID: ${{ inputs.trigger_id }}
+          DELIVERY_TEST: ${{ inputs.delivery_test }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+
+          trigger_id = os.environ.get("TRIGGER_ID", "")
+          if trigger_id and not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,79}", trigger_id):
+              raise SystemExit("Invalid trigger_id")
+          if os.environ.get("DELIVERY_TEST") != "none":
+              raise SystemExit("Only the none delivery test is supported")
+          print(json.dumps({
+              "workflow": "trigger-smoke",
+              "trigger_id": trigger_id,
+              "delivery_test": "none",
+              "run_id": os.environ["GITHUB_RUN_ID"],
+          }))
+          PY

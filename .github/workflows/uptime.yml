@@ -1,11 +1,16 @@
 name: Feed health
-run-name: Feed health (${{ inputs.delivery_test || 'scheduled' }})
+run-name: Feed health (${{ inputs.delivery_test || 'scheduled' }}) [${{ inputs.trigger_id || 'native' }}]
 
 on:
   schedule:
     - cron: "3-59/5 * * * *"
   workflow_dispatch:
     inputs:
+      trigger_id:
+        description: Optional automatic-trigger correlation ID
+        type: string
+        required: false
+        default: ""
       delivery_test:
         description: Monitor-only delivery test
         type: choice
@@ -14,6 +19,7 @@ on:
         options:
           - none
           - outage
+          - degraded
           - recovery
 
 permissions:
@@ -40,4 +46,4 @@ jobs:
           command: update
         env:
           GH_PAT: ${{ github.token }}
-          DUB_FEED_HEALTH_URL: ${{ inputs.delivery_test == 'outage' && 'https://www.thefileswithdub.com/__alert_delivery_test__' || 'https://www.thefileswithdub.com/api/feed-health' }}
+          DUB_FEED_HEALTH_URL: ${{ inputs.delivery_test == 'outage' && 'https://www.thefileswithdub.com/__alert_delivery_test__' || inputs.delivery_test == 'degraded' && 'https://raw.githubusercontent.com/franklinburrus/thefileswithdub-status/main/fixtures/degraded-health.json' || 'https://www.thefileswithdub.com/api/feed-health' }}
