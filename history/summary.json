@@ -4,23 +4,23 @@
     "url": "$DUB_FEED_HEALTH_URL",
     "icon": "https://icons.duckduckgo.com/ip3/null.ico",
     "slug": "dub-feeds",
-    "status": "down",
-    "uptime": "90.41%",
-    "uptimeDay": "97.95%",
-    "uptimeWeek": "90.41%",
-    "uptimeMonth": "90.41%",
-    "uptimeYear": "90.41%",
-    "time": 351,
-    "timeDay": 402,
-    "timeWeek": 351,
-    "timeMonth": 351,
-    "timeYear": 351,
+    "status": "up",
+    "uptime": "90.27%",
+    "uptimeDay": "97.29%",
+    "uptimeWeek": "90.27%",
+    "uptimeMonth": "90.27%",
+    "uptimeYear": "90.27%",
+    "time": 369,
+    "timeDay": 438,
+    "timeWeek": 369,
+    "timeMonth": 369,
+    "timeYear": 369,
     "dailyMinutesDown": {
       "2026-11-07": 1,
       "2026-11-08": 75,
       "2026-11-09": 10,
       "2026-11-10": 450,
-      "2026-11-11": 20
+      "2026-11-11": 30
     }
   }
 ]
