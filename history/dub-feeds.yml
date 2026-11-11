@@ -1,7 +1,7 @@
 url: $DUB_FEED_HEALTH_URL
-status: down
+status: up
 code: 200
-responseTime: 391
-lastUpdated: 2026-11-11T21:53:37.638Z
+responseTime: 691
+lastUpdated: 2026-11-11T22:03:10.483Z
 startTime: 2026-11-07T21:27:12.975Z
 generator: Upptime <https://github.com/upptime/upptime>
