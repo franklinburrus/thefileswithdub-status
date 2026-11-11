@@ -1,6 +1,6 @@
 # The Files with Dub feed monitor
 
-<!--live status--> **🟥 Complete outage**
+<!--live status--> **🟩 All systems operational**
 
 [Feed health](https://www.thefileswithdub.com/api/feed-health) checks X metadata, X playback and YouTube together. A healthy response requires HTTP 200 and the exact `"status":"healthy"` marker.
 
